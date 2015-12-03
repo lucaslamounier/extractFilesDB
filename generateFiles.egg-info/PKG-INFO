@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: generateFiles
+Version: 0.0dev
+Summary: Programa para gerar arquivos .csv e .txt de dados extraidos de tabelas do banco de dados
+Home-page: UNKNOWN
+Author: lucas lamounier
+Author-email: lucasls.oas@gmail.com
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN

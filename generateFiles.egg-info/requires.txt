@@ -1,0 +1,8 @@
+bottle
+bottledaemon
+pyodbc
+setuptools
+configparser
+sqlalchemy
+zope.sqlalchemy
+transaction
