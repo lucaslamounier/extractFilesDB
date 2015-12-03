@@ -24,32 +24,32 @@ def zip_folder(directory, filename):
     subprocess.call(cmd.split(),stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     return join(directory, filename)
 
-def formatResultado(resultado):
-    lista = []
-    for x in range(0,len(resultado)):
-        dicionario = {}
-        for (c,v) in resultado[x].items():
+def formatResult(result):
+    list = []
+    for x in range(0,len(result)):
+        as_dict = {}
+        for (c,v) in result[x].items():
             if(isinstance(v, datetime.datetime)):
-                dicionario[c] = v.isoformat()
+                as_dict[c] = v.isoformat()
             elif(isinstance(v, datetime.date)):
-                dicionario[c] = v.isoformat()
+                as_dict[c] = v.isoformat()
             elif(isinstance(v, decimal.Decimal)):
-                dicionario[c] = float(v)
+                as_dict[c] = float(v)
             else:
-                dicionario[c] = v
-        lista.append(dicionario)
-    return lista
+                as_dict[c] = v
+        list.append(as_dict)
+    return list
 
-def generate_txt(nome_arquivo, result_query):
-    with open(nome_arquivo, 'w') as arquivo:
+def generate_txt(file_name, result_query):
+    with open(file_name, 'w') as arquivo:
         for item in range(0, len(result_query)):
             for (chave, valor) in result_query[item].items():
                 arquivo.write('%s: %s ' %(chave,valor))
             arquivo.write('\n')
 
 
-def generate_csv(nome_arquivo, result_query):
-    with open(nome_arquivo,'w') as csv:
+def generate_csv(file_name, result_query):
+    with open(file_name,'w') as csv:
         if len(result_query):
             cabecalho = ''
             for chave in result_query[0].keys():
@@ -65,7 +65,7 @@ def generate_csv(nome_arquivo, result_query):
             line += '\n'
             csv.write(line)
 
-def registre_log(directory, msg):
+def register_log(directory, msg):
     path = directory
     path_file = directory + 'log.txt'
     dirs = os.listdir(path)
